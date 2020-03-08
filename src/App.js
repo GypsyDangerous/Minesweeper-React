@@ -4,6 +4,7 @@ import GameBoard from './components/GameBoard';
 import Tile from './components/Tile';
 import { gameContext } from './contexts/gameContext';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 const map = (n, start1, stop1, start2, stop2) => {
   return ((n - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
@@ -39,12 +40,13 @@ function App() {
 
   useEffect(() => {
     reset()
-  }, [dimension, difficulty])
+  }, [dimension, difficulty, game.mineCount])
 
   return (
       <div className="App" onContextMenu={e => e.preventDefault()} onMouseUp={() => setMouseDown(false)} onMouseDown={() => setMouseDown(true)}>
         <Header mouseDown={mouseDown} onClick={reset}/>
         <GameBoard board={board} dimension={dimension}/>
+        <Footer dimension={[dimension, setDimension]}/>
       </div>
   );
 }

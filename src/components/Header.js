@@ -3,7 +3,6 @@ import Emoji, { Twemoji, Emojione} from "react-emoji-render"
 import { gameContext } from '../contexts/gameContext';
 import { useStopwatch } from "react-timer-hook"
 
-
 const winnerFace = "😎"
 
 const Header = props => {
@@ -35,12 +34,15 @@ const Header = props => {
         }
     }, [game])
 
+    const options = ["one", "two", "three"]
+    const [selected, setSelected] = useState(options[0])
+
     return (
-        <div className="header">
+        <header className="header">
             <div className="header__text">0{game.mineCount-game.flagCount}</div>
             <button onClick={() => {props.onClick(); reset()}} className="header__button"><Emoji className="emoji" text={emoji}/></button>
             <div className="header__text">{minutes < 10 && "0"}{minutes}:{seconds < 10 && "0"}{seconds}</div>
-        </div>
+        </header>
     );
 }
 

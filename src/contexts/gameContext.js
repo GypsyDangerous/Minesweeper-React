@@ -23,7 +23,7 @@ export const GameContextProvider = props => {
                 winner: winner,
                 setWinner: setWinner,
                 mineCount: mineCount,
-                setMineCount: mineCount
+                setMineCount: setMineCount
             }}
         >
             {props.children}

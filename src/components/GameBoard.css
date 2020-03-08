@@ -25,7 +25,7 @@
     background: grey;
 }
 
-.header{
+.header, .footer{
     width: 100%;
     height: 75px;
     background: #c0c0c0;
@@ -34,6 +34,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.footer{
+    margin-bottom: 0;
+    margin-top: 15px;
+    justify-content: space-around;
+    height: 60px;
 }
 
 .header__button{
@@ -77,4 +84,13 @@
     width: 125px;
     text-align: center;
     padding: 0 5px 0 5px;
+}
+
+.footer__section{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer__section * {
+    margin: 2.5px;
 }
