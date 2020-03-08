@@ -1,0 +1,35 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --light-background-color: #bdbdbd;
+  --dark-background-color: #7e7e7e;
+}
+
+html, body, .App, .root{
+  height: 100vh;
+}
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark{
+  background: var(--dark-background-color) !important;
+}
+
+.App{
+  background: var(--light-background-color);
+  border: outset;
+  padding: 25px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
