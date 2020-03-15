@@ -65,7 +65,7 @@ const Tile = props => {
 
     const extraClick = () => {
         game.setFlagCount(board.reduce((acc, cur, i) => cur.isFlag ? acc + 1 : acc, 0))
-        game.setWinner(board.reduce((acc, cur) => cur.isFlag && cur.hasBomb ? acc + 1 : acc, 0) === board.reduce((acc, cur) => cur.hasBomb ? acc + 1 : acc, 0))
+        game.setWinner(board.reduce((acc, cur) => cur.isClicked ? acc+1: acc, 0) === board.length-game.mineCount && board.reduce((acc, cur) => cur.isFlag && cur.hasBomb ? acc + 1 : acc, 0) === board.reduce((acc, cur) => cur.hasBomb ? acc + 1 : acc, 0))
     }
 
     const clickHandler = e => {
@@ -75,7 +75,7 @@ const Tile = props => {
 
     const contextHandler = e => {
         const copy = [...board]
-        if (!copy[props.index].isClicked) {
+        if (!copy[props.index].isClicked && (game.mineCount-game.flagCount > 0 || copy[props.index].isFlag)) {
             copy[props.index].isFlag = !copy[props.index].isFlag
             setBoard(copy)
         }
@@ -89,7 +89,15 @@ const Tile = props => {
     }
 
     return (
-        <button onContextMenu={contextHandler} onClick={clickHandler} onMouseOver={handleMouseOver} onMouseLeave={() => setHover(false)} className={`tile ${tile.isClicked && "inset"} ${!tile.isClicked && hover && "no-bomb inset"} ${tile.isClicked && !tile.hasBomb && "no-bomb"}`} style={{width: boardSize/boardDimension, height: boardSize/boardDimension}}>
+        <button 
+            onContextMenu={contextHandler} 
+            onClick={clickHandler} 
+            onMouseOver={handleMouseOver} 
+            onMouseUp={() => setHover(false)} 
+            onMouseLeave={() => setHover(false)} 
+            className={`tile ${tile.isClicked && "inset"} ${!tile.isClicked && hover && "no-bomb inset"} ${tile.isClicked && !tile.hasBomb && "no-bomb"}`} 
+            style={{width: boardSize/boardDimension, height: boardSize/boardDimension}}
+        >
             {tile.isClicked && tile.hasBomb && <FontAwesomeIcon icon={faBomb}/>}
             {(!tile.isClicked || tile.hasBomb) && tile.isFlag && <FontAwesomeIcon style={{color: "red"}} icon={faFlag}/>}
             {tile.isClicked && !tile.hasBomb && tile.neighbors > 0 ? tile.neighbors : ""}

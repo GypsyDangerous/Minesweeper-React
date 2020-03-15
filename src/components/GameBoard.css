@@ -94,3 +94,9 @@
 .footer__section * {
     margin: 2.5px;
 }
+
+.footer__section input{
+    border: inset;
+    padding: 2.5px;
+    line-height: 1;
+}

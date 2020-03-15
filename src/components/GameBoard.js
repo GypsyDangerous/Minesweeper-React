@@ -6,7 +6,7 @@ import "./GameBoard.css"
 const GameBoard = props => {
 
     const [board, setBoard] = useState([])
-    const [size, setSize] = useState(700)
+    const [size, setSize] = useState(500)
 
     useEffect(() => {
         setBoard(props.board)

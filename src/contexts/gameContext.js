@@ -11,7 +11,8 @@ export const GameContextProvider = props => {
     const [flagCount, setFlagCount] = useState(0)
     const [gameIsOver, setGameisOver] = useState(false)
     const [winner, setWinner] = useState(false)
-    const [mineCount, setMineCount] = useState(10)
+    const [mineCount, setMineCount] = useState(50)
+    const [time, setTime] = useState()
 
     return (
         <gameContext.Provider
@@ -23,7 +24,9 @@ export const GameContextProvider = props => {
                 winner: winner,
                 setWinner: setWinner,
                 mineCount: mineCount,
-                setMineCount: setMineCount
+                setMineCount: setMineCount,
+                time: time,
+                setTime: setTime
             }}
         >
             {props.children}

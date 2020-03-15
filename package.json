@@ -10,14 +10,15 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
-    "firebase": "^7.10.0",
+    "firebase": "^7.11.0",
     "gh-pages": "^2.2.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-dropdown": "^1.6.4",
     "react-emoji-render": "^1.2.2",
     "react-scripts": "3.4.0",
-    "react-timer-hook": "^2.0.0"
+    "react-timer-hook": "^2.0.0",
+    "react-transition-group": "^4.3.0"
   },
   "scripts": {
     "predeploy": "npm run build",

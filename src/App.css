@@ -33,3 +33,23 @@ body{
   align-items: center;
   justify-content: center;
 }
+
+#username{
+  margin-left: 5px;
+}
+
+.submit__button{
+  padding: 5px 10px 5px 10px;
+}
+
+.scores{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.scores__header{
+  font-size: 1.5rem;
+  text-decoration: underline;
+
+}

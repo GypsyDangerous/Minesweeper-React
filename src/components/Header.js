@@ -31,6 +31,7 @@ const Header = props => {
     useEffect(() => {
         if(game.gameIsOver || game.winner){
             pause()
+            game.setTime(`${ minutes < 10 ? "0" : "" }${ minutes }:${ seconds < 10 ? "0" : "" }${ seconds }` )
         }
     }, [game])
 
